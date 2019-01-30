@@ -159,6 +159,12 @@ def login_user(browser,
     # wait until it navigates to the login page
     login_page_title = "Login"
     explicit_wait(browser, "TC", login_page_title, logger)
+    
+    pre_login_button = browser.find_element_by_xpath("//*[@id='react-root']/section/main/article/div[2]/div[2]/p/a")
+
+    ActionChains(browser).move_to_element(pre_login_button).click().perform()
+
+    sleep(3)
 
     # wait until the 'username' input element is located and visible
     input_username_XP = "//input[@name='username']"
